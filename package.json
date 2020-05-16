@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/timevans8392/phase3project#readme",
   "dependencies": {
-    "knex": "^0.21.1",
-    "pg": "^8.2.1"
+    "express": "4.17.1",
+    "knex": "0.21.1",
+    "pg": "8.2.1"
   }
 }

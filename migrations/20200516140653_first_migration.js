@@ -1,15 +1,20 @@
 
 exports.up = function(knex) {
   return knex.schema
-    .createTable('list', function(table) {
+    .createTable('todolists', function(table) {
         table.increments().primary()
-        table.string('uuid', 3).notNullable()
-        table.string('name', 3).notNullable()
-        table.timestamp('ctime', 3).notNullable()
-        table.timestamp('ntime', 3).notNullable()
+        table.string('uuid').notNullable()
+        table.string('name').notNullable()
+    })
+    .createTable('todoitems', function(table) {
+        table.increments().primary()
+        table.string('uuid').notNullable()
+        table.string('name').notNullable()
+        table.integer('todolist_id').unsigned()
+        table.foreign('todolist_id').references('todolists.id')
     })
 };
 
 exports.down = function(knex) {
-    return knex.schema.dropTable('list')
+    return knex.schema.dropTable('todoitems').dropTable('todolists')
 };

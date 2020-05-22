@@ -1,0 +1,50 @@
+
+body {
+  background-color: rgb(60, 60, 60);
+}
+
+.header h1 {
+  text-align: center;
+  font-family: 'Ubuntu';
+  color: white;
+}
+
+.header p {
+  text-align: center;
+  font-family: 'Ubuntu';
+  color: white;
+}
+
+.header p strong {
+  text-align: center;
+  font-family: 'Ubuntu';
+  color: white;
+}
+
+.listName {
+  width: 300px;
+  height: auto;
+  margin: 0 auto;
+  padding: 35px;
+}
+
+.submitButton {
+    height:20px;
+    width:100px;
+    margin: -20px -50px;
+    position: relative;
+    top:50%;
+    left:50%;
+}
+
+.footer h5 {
+  text-align: center;
+  font-family: 'Ubuntu';
+  color: rgb(85, 85, 85);
+}
+
+.footer h6 {
+  text-align: center;
+  font-family: 'Ubuntu';
+  color: rgb(85, 85, 85);
+}

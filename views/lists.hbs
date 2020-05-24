@@ -10,8 +10,15 @@
   <link rel="stylesheet" href="/css/lists.css">
   <title>Your Lists</title>
 </head>
-
 <body>
+<div class="show-lists"></div>
+<p>Here is your list:</p>
+<ul>
+  {{#each todolists}}
+    <li>{{this.name}}</li>
+  {{/each}}
+</ul>
+</div>  
   <footer class="footer">
     <h5>Created by Cole Tucker, Tim Evans, and Henry Lee</h5>
     <h6>github.com/coletucker22  |  github.com/timevans8392  |  github.com/henrylee0327</h6>

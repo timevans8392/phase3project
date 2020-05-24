@@ -44,17 +44,18 @@ app.get('/', (req, res) => {
         .then((lists) => {
             res.render('index', {lists: lists})
         })
-        .catch((err) => {
-            res.status(400).send('Could not find the lists')
-        })
+
 });
 
 app.get('/list', (req, res) => {
     const theName = req.body.name
 
-    res.render('list', {
-        listName: theName
+    db.getLists()
+        .then(() => {
+    res.render('lists', {
+    listName: theName
     })
+})
 })
 
 app.post('/list', function (req, res) {
@@ -74,7 +75,7 @@ app.post('/list', function (req, res) {
             })
         })
         .catch((err) => {
-            console.log(err)
+            // console.log(err)
             res.status(500).send('oh man, we totally messed up')
         })
 })

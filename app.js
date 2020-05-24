@@ -48,12 +48,14 @@ app.get('/', (req, res) => {
 });
 
 app.get('/list', (req, res) => {
-    const theName = req.body.name
+    // const theName = req.params.name
 
     db.getLists()
-        .then(() => {
-    res.render('lists', {
-    listName: theName
+        .then((theLists) => {
+            console.log(theLists)
+            console.log('=================')
+            res.render('lists', {
+    todolists: theLists
     })
 })
 })

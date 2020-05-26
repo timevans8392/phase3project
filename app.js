@@ -82,7 +82,24 @@ app.post('/list', function (req, res) {
         })
 })
 
+app.delete('/list/:uuid', (req, res) => {
+    const deleteRequest = req.params.uuid
+    console.log(deleteRequest)
+    console.log('zzzzzzzzzz')
 
+    db.deleteList(deleteRequest)
+        .then((listDeleted) => {
+            res.render('lists_deleted', {
+                todolists: deleteRequest
+            })
+        })
+})
+
+app.delete('/list/:uuid', (req, res) => {
+    let query = {_uuid:req.params.uuid}
+
+    
+})
 
 app.listen(port, () => {
     console.log('Port is listening on: ' + port)

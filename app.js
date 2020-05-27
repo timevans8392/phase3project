@@ -38,7 +38,7 @@ function generateUUID () {
 //         })
 // })
 
-// Homepage showing the main lists
+
 app.get('/', (req, res) => {
     db.getLists()
         .then((lists) => {
@@ -47,7 +47,7 @@ app.get('/', (req, res) => {
 
 });
 
-app.get('/list', (req, res) => {
+app.get('/list/:uuid', (req, res) => {
     // const theName = req.params.name
 
     db.getLists()
@@ -67,14 +67,16 @@ app.post('/list', function (req, res) {
     const theName = req.body.name
     // This app needs to generate an UUID for the list
     const theUUID = generateUUID()
-    console.log(req.body)
+    // console.log(req.body)
     
     db.createList(theName, theUUID)
-        .then((newList) => {
-            res.render('lists', {
-                listUUID: theUUID,
-                listName: theName
-            })
+        .then((dataBaseQueryResult) => {
+            // console.log(newList.rows)
+            // res.render('editList', {
+            //     listUUID: theUUID,
+            //     listName: theName
+            // })
+            res.redirect(302,`/list/${dataBaseQueryResult.rows[0].uuid}`)
         })
         .catch((err) => {
             // console.log(err)

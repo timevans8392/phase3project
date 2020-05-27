@@ -9,7 +9,7 @@ $(document).ready(function () {
             url: '/list/' + uuid,
             success: function(response){
                 alert('Deleting the list')
-                window.location.href='/'
+                window.location.href='/list'
             },
             error: function(err){
                 console.log(err)

@@ -47,13 +47,13 @@ app.get('/', (req, res) => {
 
 });
 
-app.get('/list/:uuid', (req, res) => {
+app.get('/list/newlist', (req, res) => {
     // const theName = req.params.name
 
     db.getLists()
         .then((theLists) => {
             console.log(theLists)
-            console.log('=================')
+            console.log('End of the lists')
             res.render('lists', {
     todolists: theLists
     })
@@ -76,7 +76,8 @@ app.post('/list', function (req, res) {
             //     listUUID: theUUID,
             //     listName: theName
             // })
-            res.redirect(302,`/list/${dataBaseQueryResult.rows[0].uuid}`)
+            // res.redirect(302,`/list/${dataBaseQueryResult.rows[0].uuid}`)
+            res.redirect(302,`/list/newlist`)
         })
         .catch((err) => {
             // console.log(err)
@@ -91,17 +92,30 @@ app.delete('/list/:uuid', (req, res) => {
 
     db.deleteList(deleteRequest)
         .then((listDeleted) => {
-            res.render('lists_deleted', {
-                todolists: deleteRequest
-            })
+            // res.render('lists_deleted', {
+            //     todolists: deleteRequest
+            // })
+            console.log(listDeleted.name)
+            console.log('====================')
+            // res.redirect(302,`/list/deletelist`)
+            res.send(200)
+        })
+        .catch((err) => {
+            res.status(500).send('What just happend!!')
         })
 })
 
-app.delete('/list/:uuid', (req, res) => {
-    let query = {_uuid:req.params.uuid}
+// app.delete('/list/:uuid', (req, res) => {
+//     let query = {_uuid:req.params.uuid}
 
+//     lists.remove(query, function(err){
+//         if (err) {
+//             console.log(err)
+//         }
+//         res.send('Success')
+//     })
     
-})
+// })
 
 app.listen(port, () => {
     console.log('Port is listening on: ' + port)

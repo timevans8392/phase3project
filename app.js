@@ -105,16 +105,16 @@ app.delete('/list/:uuid', (req, res) => {
         })
 })
 
-// app.get('/list/newlist/:item', (req, res) => {
-//     const itemRequest = req.params.item
+app.get('/list/newlist/:item', (req, res) => {
+    const itemRequest = req.params.item
 
-//     console.log(itemRequest)
-//     function itemList (itemRequest) {
-//         .then()
-//     }
+    console.log(itemRequest)
+    function itemList (itemRequest) {
+        res.send(200)
+    }
     
 
-// })
+})
 
 app.listen(port, () => {
     console.log('Port is listening on: ' + port)

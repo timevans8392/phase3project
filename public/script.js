@@ -20,18 +20,3 @@ $(document).ready(function () {
     })
 })
 
-// function getTheDeletedList () {
-//     app.get('/list/newlist', (req, res) => {
-//         // const theName = req.params.name
-    
-//         db.getLists()
-//             .then((theLists) => {
-//                 console.log(theLists)
-//                 console.log('End of the lists')
-//                 res.render('lists', {
-//         todolists: theLists
-//         })
-//     })
-//     })
-    
-// }

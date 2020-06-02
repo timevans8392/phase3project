@@ -68,7 +68,7 @@ app.post('/list', function (req, res) {
     // This app needs to generate an UUID for the list
     const theUUID = generateUUID()
     // console.log(req.body)
-    
+
     db.createList(theName, theUUID)
         .then((dataBaseQueryResult) => {
             // console.log(newList.rows)
@@ -100,7 +100,7 @@ app.delete('/list/:uuid', (req, res) => {
 app.delete('/list/:uuid', (req, res) => {
     let query = {_uuid:req.params.uuid}
 
-    
+
 })
 
 app.listen(port, () => {

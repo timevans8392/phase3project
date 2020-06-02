@@ -10,24 +10,62 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   <link rel="stylesheet" href="/css/lists.css">
-  
+
   <script src="/script.js"></script>
 </head>
 <body>
-<div class="show-lists"></div>
-<p>Here is your list:</p>
-<ul>
-  {{#each todolists}}
-    <li>{{this.name}}</li> 
-    <button class="delete-button" dataListuuid="{{this.uuid}}">delete</button>
-  {{/each}}
-</ul>
-</div>  
+  <section class='title'>
+    <div class="listPageTitle">
+      <h1>
+        Your <strong>Lists</strong>.
+      </h1>
+    </div>
+  </section>
+  <section class='makeAList'>
+    <p class='makeAListText'>Don't see a list? <a href="/">Make one!</a></p>
+  </section>
+  <section class='createdLists'>
+
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          Component
+        </p>
+        <a href="#" class="card-header-icon" aria-label="more options">
+          <span class="icon">
+            <i class="fas fa-angle-down" aria-hidden="true"></i>
+          </span>
+        </a>
+      </header>
+    <div class="card-content">
+      <div class="content">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
+        <a href="#">@bulmaio</a>. <a href="#">#css</a> <a href="#">#responsive</a>
+        <br>
+      </div>
+      </div>
+      <footer class="card-footer">
+        <a href="#" class="card-footer-item">Save</a>
+        <a href="#" class="card-footer-item">Edit</a>
+        <a href="#" class="card-footer-item">Delete</a>
+      </footer>
+    </div>
+  </section>
+  <section class='menu'>
+      <div class="dropdown">
+      <button class="dropbtn">Menu</button>
+      <div class="dropdown-content">
+        <a href="/">Home</a>
+        <a href="/list">Your Lists</a>
+        <a href="#">About Us</a>
+      </div>
+    </div>
+  </section>
   <footer class="footer">
     <h5>Created by Cole Tucker, Tim Evans, and Henry Lee</h5>
     <h6>github.com/coletucker22  |  github.com/timevans8392  |  github.com/henrylee0327</h6>
   </footer>
-  
+
 </body>
 
 </html>

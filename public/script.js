@@ -8,8 +8,10 @@ $(document).ready(function () {
             type: 'DELETE',
             url: '/list/' + uuid,
             success: function(response){
-                alert('Deleting the list')
-                window.location.href='/list'
+                alert('You are deleting the list!')
+                // window.location.href='/list/newlist'
+                location.reload()
+                // getTheDeletedList()
             },
             error: function(err){
                 console.log(err)

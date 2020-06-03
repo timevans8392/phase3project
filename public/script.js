@@ -1,14 +1,14 @@
 $(document).ready(function () {
-    $(".delete-button").on('click', function (e) {
+    $(".delete").on('click', function (e) {
         var target = $(e.target)
-        
+
         const uuid = target.attr('dataListuuid')
-        
+
         $.ajax({
             type: 'DELETE',
             url: '/list/' + uuid,
             success: function(response){
-                alert('You are deleting the list!')
+                alert('Deleting the list.')
                 // window.location.href='/list/newlist'
                 location.reload()
                 // getTheDeletedList()
@@ -19,4 +19,3 @@ $(document).ready(function () {
         })
     })
 })
-

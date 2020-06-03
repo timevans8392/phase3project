@@ -4,7 +4,7 @@ const validate = require('./lib/validate');
 
 
 const app = express();
-const port = 7000;
+const port = 7001;
 
 app.use(express.static('public'));
 app.use(express.urlencoded({extended: true}));
@@ -68,7 +68,7 @@ app.post('/list', function (req, res) {
     // This app needs to generate an UUID for the list
     const theUUID = generateUUID()
     // console.log(req.body)
-    
+
     db.createList(theName, theUUID)
         .then((dataBaseQueryResult) => {
             // console.log(newList.rows)
@@ -105,15 +105,30 @@ app.delete('/list/:uuid', (req, res) => {
         })
 })
 
+// app.get('/list/:uuid', (req, res) => {
+//     const itemRequest = req.params.uuid
+
+//     console.log(itemRequest)
+//     function itemList (itemRequest) {
+//         res.send(200)
+//     }
+
+// })
+
 app.get('/list/:uuid', (req, res) => {
     const itemRequest = req.params.uuid
 
-    console.log(itemRequest)
-    function itemList (itemRequest) {
-        res.send(200)
-    }
-    
+    // console.log(itemRequest)
+    db.itemTitle(itemRequest)
+        .then((itemData) => {
 
+            console.log('================')
+            console.log(itemData)
+            res.render('items', {name: itemData})
+        })
+        .catch((err) => {
+            res.status(500).send("Couldn't get the page")
+        })
 })
 
 app.listen(port, () => {

@@ -47,7 +47,7 @@ app.get('/', (req, res) => {
 
 });
 
-app.get('/list/newlist', (req, res) => {
+app.get('/lists', (req, res) => {
     // const theName = req.params.name
 
     db.getLists()
@@ -77,7 +77,7 @@ app.post('/list', function (req, res) {
             //     listName: theName
             // })
             // res.redirect(302,`/list/${dataBaseQueryResult.rows[0].uuid}`)
-            res.redirect(302,`/list/newlist`)
+            res.redirect(302,`/lists`)
         })
         .catch((err) => {
             // console.log(err)
@@ -105,8 +105,8 @@ app.delete('/list/:uuid', (req, res) => {
         })
 })
 
-app.get('/list/newlist/:item', (req, res) => {
-    const itemRequest = req.params.item
+app.get('/list/:uuid', (req, res) => {
+    const itemRequest = req.params.uuid
 
     console.log(itemRequest)
     function itemList (itemRequest) {

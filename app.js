@@ -108,14 +108,11 @@ app.delete('/list/:uuid', (req, res) => {
 app.get('/list/newlist/:item', (req, res) => {
     const itemRequest = req.params.item
 
-<<<<<<< HEAD
-=======
     console.log(itemRequest)
     function itemList (itemRequest) {
         res.send(200)
     }
     
->>>>>>> 38106142e83b3c0c18f5d6ffa3b4419eb4dd89e2
 
 })
 

@@ -107,7 +107,7 @@ body .lists {
 body .lists .new-list {
   display: flex;
   flex-direction: column;
-  
+
 }
 
 body .lists .new-list .delete-button {

@@ -10,15 +10,40 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   <link rel="stylesheet" href="/css/main.css">
-
   <script src="/script.js"></script>
 </head>
 <body>
-  
+  <div class="card">
+  <header class="card-header">
+    <p class="card-header-title">
+    {{this.name.rows}}
+    </p>
+    <a href="#" class="card-header-icon" aria-label="more options">
+      <span class="icon">
+        <i class="fas fa-angle-down" aria-hidden="true"></i>
+      </span>
+    </a>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      <form method="POST">
+        <input type="text" placeholder="Type your to-dos here" name="name">
+
+      </form>
+      <br>
+      {{!-- <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time> --}}
+    </div>
+  </div>
+  <footer class="card-footer">
+    <a href="#" class="card-footer-item">Save</a>
+    <a href="#" class="card-footer-item">Edit</a>
+    <a href="#" class="card-footer-item">Delete</a>
+  </footer>
+</div>
   <footer class="footer">
     <h5>Created by Cole Tucker, Tim Evans, and Henry Lee</h5>
     <h6>github.com/coletucker22  |  github.com/timevans8392  |  github.com/henrylee0327</h6>
-  </footer>
+  </footer>  
 </body>
 
 </html>

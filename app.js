@@ -47,19 +47,6 @@ app.get('/', (req, res) => {
 
 });
 
-app.get('/lists', (req, res) => {
-    // const theName = req.params.name
-
-    db.getLists()
-        .then((theLists) => {
-            console.log(theLists)
-            console.log('End of the lists')
-            res.render('lists', {
-    todolists: theLists
-    })
-})
-})
-
 app.post('/list', function (req, res) {
     //New code
     // This route is creating a new list
@@ -77,12 +64,26 @@ app.post('/list', function (req, res) {
             //     listName: theName
             // })
             // res.redirect(302,`/list/${dataBaseQueryResult.rows[0].uuid}`)
+            console.log(dataBaseQueryResult.rows)
             res.redirect(302,`/lists`)
         })
         .catch((err) => {
             // console.log(err)
             res.status(500).send('oh man, we totally messed up')
         })
+})
+
+app.get('/lists', (req, res) => {
+    // const theName = req.params.name
+
+    db.getLists()
+        .then((theLists) => {
+            // console.log(theLists)
+            // console.log('End of the lists')
+            res.render('lists', {
+    todolists: theLists
+    })
+})
 })
 
 app.delete('/list/:uuid', (req, res) => {
@@ -98,7 +99,7 @@ app.delete('/list/:uuid', (req, res) => {
             console.log(listDeleted.name)
             console.log('====================')
             // res.redirect(302,`/list/deletelist`)
-            res.send(200)
+            res.status(200)
         })
         .catch((err) => {
             res.status(500).send('What just happend!!')
@@ -119,17 +120,63 @@ app.get('/list/:uuid', (req, res) => {
     const itemRequest = req.params.uuid
 
     // console.log(itemRequest)
-    db.itemTitle(itemRequest)
+    db.getItems()
         .then((itemData) => {
 
             console.log('================')
-            console.log(itemData)
-            res.render('items', {name: itemData})
+            // console.log(itemData)
+            res.render('items', {todoitems: itemData})
         })
         .catch((err) => {
             res.status(500).send("Couldn't get the page")
         })
 })
+
+app.post('/list/item', function (req, res) {
+    //New code
+    // This route is creating a new item
+    // Input is the name
+    const theName = req.body.name
+        // console.log(theName)
+        // console.log('zzzzzzzzzzzz')
+    // This app needs to generate an UUID for the list
+    const theUUID = generateUUID()
+    // console.log(req.body)
+
+    // const returnData = returnData.rows
+
+    db.createItem(theName, theUUID)
+        .then((itemData) => {
+            // console.log(itemData)
+            // res.render('items', {
+            //     // itemUUID: theUUID,
+            //     // itemName: theName,
+            //     todoitems: itemData.rows
+            // })
+            res.redirect(302,`/list/items`)
+        })
+        .catch((err) => {
+            // console.log(err)
+            res.status(500).send('oh man, we totally messed up')
+        })
+})
+
+app.get('/list/items', (req, res) => {
+    const itemRequest = req.params.uuid
+
+    // console.log(itemRequest)
+    db.getItems()
+        .then((itemData) => {
+
+            console.log('================')
+            // console.log(itemData)
+            res.status(200).render('items', {todoitems: itemData})
+        })
+        .catch((err) => {
+            res.status(500).send("Couldn't get the page")
+        })
+})
+
 
 app.listen(port, () => {
     console.log('Port is listening on: ' + port)

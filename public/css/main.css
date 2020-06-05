@@ -147,3 +147,15 @@ body .lists .new-list .delete-button {
   font-family: 'Ubuntu';
   color: rgb(85, 85, 85);
 }
+
+/* Items modal */
+/* #modal .card {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,5);
+} */

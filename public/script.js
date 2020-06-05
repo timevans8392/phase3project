@@ -19,3 +19,22 @@ $(document).ready(function () {
         })
     })
 })
+
+
+// $(document).ready(function () {
+//     $(".addButton").on('click', function (e) {
+//         var name = $(e.target).attr('dataItemName')
+
+//         $.ajax({
+//             type: 'POST',
+//             url: '/list/:uuid' + name,
+//             success: function(response){
+//                 alert('You have added a to-do to your list')
+//                 location.reload()
+//             },
+//             error: function(err){
+//                 console.log(err)
+//             }
+//         })
+//     })
+// })
